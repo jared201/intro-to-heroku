@@ -87,6 +87,9 @@ app.get('/broker/:sfid', function(req, res) {
     res.json(data.rows[0]);
   });
 });
+app.get('/_callback', (req, res) => {
+  res.status(200).send('callback login');
+});
 
 var port = process.env.PORT || 8200;
 
