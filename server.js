@@ -8,6 +8,7 @@ var app = express();
 app.use(express.static('www'));
 app.use(express.static(path.join('www', 'build')));
 app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 
 
