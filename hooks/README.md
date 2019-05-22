@@ -20,14 +20,14 @@
 -->
 # Cordova Hooks
 
-Cordova Hooks represent special scripts which could be added by application and plugin developers or even by your own build system  to customize cordova commands. Hook scripts could be defined by adding them to the special predefined folder (`/hooks`) or via configuration files (`config.xml` and `plugin.xml`) and run serially in the following order:
+Cordova Hooks represent special scripts which could be added by application and plugin developers or even by your own build system  to customize cordova.js commands. Hook scripts could be defined by adding them to the special predefined folder (`/hooks`) or via configuration files (`config.xml` and `plugin.xml`) and run serially in the following order:
 * Application hooks from `/hooks`;
 * Application hooks from `config.xml`;
 * Plugin hooks from `plugins/.../plugin.xml`.
 
 __Remember__: Make your scripts executable.
 
-__Note__: `.cordova/hooks` directory is also supported for backward compatibility, but we don't recommend using it as it is deprecated.
+__Note__: `.cordova.js/hooks` directory is also supported for backward compatibility, but we don't recommend using it as it is deprecated.
 
 ## Supported hook types
 The following hook types are supported:
@@ -136,15 +136,15 @@ module.exports = function(context) {
 }
 ```
 
-`context` object contains hook type, executed script full path, hook options, command-line arguments passed to Cordova and top-level "cordova" object:
+`context` object contains hook type, executed script full path, hook options, command-line arguments passed to Cordova and top-level "cordova.js" object:
 ```json
 {
 	"hook": "before_plugin_install",
 	"scriptLocation": "c:\\script\\full\\path\\appBeforePluginInstall.js",
-	"cmdLine": "The\\exact\\command\\cordova\\run\\with arguments",
+	"cmdLine": "The\\exact\\command\\cordova.js\\run\\with arguments",
 	"opts": {
 		"projectRoot":"C:\\path\\to\\the\\project",
-		"cordova": {
+		"cordova.js": {
 			"platforms": ["wp8"],
 			"plugins": ["com.plugin.withhooks"],
 			"version": "0.21.7-dev"
@@ -158,7 +158,7 @@ module.exports = function(context) {
 			"dir": "C:\\path\\to\\the\\project\\plugins\\com.plugin.withhooks"
 		}
 	},
-	"cordova": {...}
+	"cordova.js": {...}
 }
 
 ```
@@ -178,11 +178,11 @@ Non-javascript scripts are run via Node child_process spawn from the project's r
 
 * CORDOVA_VERSION - The version of the Cordova-CLI.
 * CORDOVA_PLATFORMS - Comma separated list of platforms that the command applies to (e.g.: android, ios).
-* CORDOVA_PLUGINS - Comma separated list of plugin IDs that the command applies to (e.g.: org.apache.cordova.file, org.apache.cordova.file-transfer)
+* CORDOVA_PLUGINS - Comma separated list of plugin IDs that the command applies to (e.g.: org.apache.cordova.js.file, org.apache.cordova.js.file-transfer)
 * CORDOVA_HOOK - Path to the hook that is being executed.
-* CORDOVA_CMDLINE - The exact command-line arguments passed to cordova (e.g.: cordova run ios --emulate)
+* CORDOVA_CMDLINE - The exact command-line arguments passed to cordova.js (e.g.: cordova.js run ios --emulate)
 
-If a script returns a non-zero exit code, then the parent cordova command will be aborted.
+If a script returns a non-zero exit code, then the parent cordova.js command will be aborted.
 
 ## Writing hooks
 

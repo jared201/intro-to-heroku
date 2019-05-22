@@ -17,7 +17,7 @@ function addPlatformBodyTag(indexPath, platform) {
   // add the platform class to the body tag
   try {
     var platformClass = 'platform-' + platform;
-    var cordovaClass = 'platform-cordova platform-webview';
+    var cordovaClass = 'platform-cordova.js platform-webview';
 
     var html = fs.readFileSync(indexPath, 'utf8');
 
