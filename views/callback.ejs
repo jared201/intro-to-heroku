@@ -19,7 +19,7 @@
 <body>
 <script >
     function onLogin(identity) {
-
+        console.log('target: ', SFIDWidget.config.target);
         var targetDiv = document.querySelector(SFIDWidget.config.target);
 
         var avatar = document.createElement('a');
