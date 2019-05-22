@@ -91,6 +91,7 @@ app.get('/broker/:sfid', function(req, res) {
 });
 app.get('/_callback', (req, res) => {
   //res.status(200).send('callback login');
+  console.log('callback');
   res.render('callback.ejs');
 });
 
