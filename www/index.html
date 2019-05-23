@@ -68,7 +68,11 @@
           targetDiv.innerHTML = '';
           targetDiv.appendChild(iddiv);
 
-
+          var logout = document.createElement('a');
+          logout.href = "javascript:SFIDWidget.logout();SFIDWidget.cancel();";
+          logout.innerHTML = "logout";
+          logout.setAttribute("style", "float:right");
+          targetDiv.appendChild(logout);
       }
       function onLogout() {
           SFIDWidget.init();
